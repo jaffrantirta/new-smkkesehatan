@@ -146,10 +146,295 @@ a {
     color: #ffffff;
 }
 
+/* Hero Section - New Single Hero with Overlay */
 .hero-section {
     position: relative;
+    overflow: hidden;
 }
 
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    max-height: 800px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(8, 41, 95, 0.85) 0%, rgba(12, 61, 145, 0.65) 50%, rgba(30, 111, 217, 0.45) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.hero-text-wrapper {
+    max-width: 700px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #ffffff;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+}
+
+.btn-hero:hover {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Sambutan Section */
+#sambutan {
+    background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+}
+
+.sambutan-content {
+    padding-right: 2rem;
+}
+
+.sambutan-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.sambutan-text {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.sambutan-signature {
+    padding-top: 1.5rem;
+    border-top: 2px solid rgba(12, 61, 145, 0.15);
+}
+
+.sambutan-signature strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.sambutan-signature .text-muted {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.sambutan-image {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(8, 41, 95, 0.15);
+}
+
+.sambutan-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(12, 61, 145, 0.08) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.sambutan-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.sambutan-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Program Carousel */
+.program-carousel {
+    margin-top: 2rem;
+}
+
+.program-slide-card {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(10, 30, 70, 0.12);
+    min-height: 450px;
+}
+
+.program-slide-image {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(30, 111, 217, 0.15), rgba(12, 61, 145, 0.15));
+}
+
+.program-slide-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(8, 41, 95, 0.3) 100%);
+    z-index: 1;
+}
+
+.program-slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.program-slide-card:hover .program-slide-image img {
+    transform: scale(1.08);
+}
+
+.program-slide-content {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 450px;
+}
+
+.program-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(12, 61, 145, 0.12);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-family: "Playfair Display", serif;
+}
+
+.program-slide-title {
+    font-size: clamp(1.75rem, 3vw, 2.2rem);
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+}
+
+.program-slide-text {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Carousel Controls Styling */
+.program-carousel .carousel-control-prev,
+.program-carousel .carousel-control-next {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(8, 41, 95, 0.15);
+    transition: all 0.3s ease;
+}
+
+.program-carousel .carousel-control-prev {
+    left: -30px;
+}
+
+.program-carousel .carousel-control-next {
+    right: -30px;
+}
+
+.program-carousel .carousel-control-prev:hover,
+.program-carousel .carousel-control-next:hover {
+    background: var(--primary-blue);
+    box-shadow: 0 12px 28px rgba(8, 41, 95, 0.25);
+}
+
+.program-carousel .carousel-control-prev-icon,
+.program-carousel .carousel-control-next-icon {
+    width: 24px;
+    height: 24px;
+    background-size: 100%;
+    filter: invert(19%) sepia(73%) saturate(1794%) hue-rotate(200deg) brightness(87%) contrast(96%);
+}
+
+.program-carousel .carousel-control-prev:hover .carousel-control-prev-icon,
+.program-carousel .carousel-control-next:hover .carousel-control-next-icon {
+    filter: brightness(0) invert(1);
+}
+
+.program-carousel .carousel-indicators {
+    margin-bottom: 1.5rem;
+}
+
+.program-carousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(12, 61, 145, 0.3);
+    border: none;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+}
+
+.program-carousel .carousel-indicators button.active {
+    background-color: var(--primary-blue);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Old carousel styles - keeping for backwards compatibility */
 .hero-section .carousel-item {
     position: relative;
 }
@@ -159,12 +444,6 @@ a {
     position: absolute;
     inset: 0;
     background: linear-gradient(120deg, rgba(8, 41, 95, 0.75), rgba(12, 61, 145, 0.35));
-}
-
-.hero-image {
-    height: 78vh;
-    min-height: 520px;
-    object-fit: cover;
 }
 
 .hero-section .carousel-caption {
@@ -190,18 +469,6 @@ a {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 0.75rem;
-}
-
-.hero-title {
-    color: #ffffff;
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    margin-bottom: 1rem;
-}
-
-.hero-text {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.05rem;
-    margin-bottom: 1.5rem;
 }
 
 .hero-actions .btn {
@@ -609,13 +876,84 @@ ul.page-numbers .next {
 }
 
 @media (max-width: 767px) {
-    .hero-image {
+    .hero-container {
         height: 70vh;
-        min-height: 460px;
+        min-height: 500px;
+    }
+
+    .hero-text-wrapper {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .btn-hero {
+        padding: 0.85rem 2rem;
+        font-size: 1rem;
+    }
+
+    .sambutan-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .sambutan-title {
+        font-size: 1.75rem;
+    }
+
+    .program-slide-image {
+        height: 300px;
+    }
+
+    .program-slide-content {
+        padding: 2rem 1.5rem;
+        min-height: auto;
+    }
+
+    .program-number {
+        font-size: 3rem;
+    }
+
+    .program-slide-title {
+        font-size: 1.5rem;
+    }
+
+    .program-carousel .carousel-control-prev,
+    .program-carousel .carousel-control-next {
+        width: 45px;
+        height: 45px;
+    }
+
+    .program-carousel .carousel-control-prev {
+        left: 10px;
+    }
+
+    .program-carousel .carousel-control-next {
+        right: 10px;
     }
 
     .hero-actions {
         display: grid;
         gap: 0.75rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .program-carousel .carousel-control-prev {
+        left: 10px;
+    }
+
+    .program-carousel .carousel-control-next {
+        right: 10px;
+    }
+
+    .sambutan-content {
+        padding-right: 0;
     }
 }
