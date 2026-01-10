@@ -465,6 +465,26 @@ function smkkesehatan_customize_register($wp_customize)
         'type' => 'text',
     ]);
 
+    $wp_customize->add_setting('smk_sidebar_youtube', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_sidebar_youtube', [
+        'label' => __('YouTube URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sidebar',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('smk_sidebar_tiktok', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_sidebar_tiktok', [
+        'label' => __('TikTok URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sidebar',
+        'type' => 'url',
+    ]);
+
     $wp_customize->add_setting('smk_sidebar_button_text', [
         'default' => 'Kirim Pesan',
         'sanitize_callback' => 'sanitize_text_field',
