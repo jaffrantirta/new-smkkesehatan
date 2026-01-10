@@ -7,9 +7,9 @@ Version: 1.1.0
 */
 
 :root {
-    --primary-blue: #007e41;
-    --primary-blue-dark: #28a828;
-    --accent-blue: #4cd44c;
+    --primary: #007e41;
+    --primary-dark: #28a828;
+    --accent: #4cd44c;
     --cream: #f5f7fb;
     --ink: #0b1b36;
     --muted: #5c6b86;
@@ -76,7 +76,7 @@ a {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--primary-blue);
+    background: var(--primary);
     color: #ffffff;
     transition: all 0.3s ease;
 }
@@ -96,7 +96,7 @@ a {
 
 
 .social-links a:hover {
-    background: var(--accent-blue);
+    background: var(--accent);
     transform: translateY(-2px);
 }
 
@@ -115,7 +115,7 @@ a {
 }
 
 .contact-link:hover {
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .contact-link svg {
@@ -211,7 +211,7 @@ a {
 
 .navbar-nav .sub-menu a:hover,
 .navbar-nav .sub-menu a:focus {
-    color: var(--primary-blue);
+    color: var(--primary);
     background: rgba(12, 61, 145, 0.08);
 }
 
@@ -222,7 +222,7 @@ a {
 
 .navbar-nav .dropdown-item:hover,
 .navbar-nav .dropdown-item:focus {
-    color: var(--primary-blue);
+    color: var(--primary);
     background: rgba(12, 61, 145, 0.08);
 }
 
@@ -232,7 +232,7 @@ a {
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 /* CTA Button */
@@ -241,8 +241,8 @@ a {
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.875rem;
-    background: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
+    background: var(--primary);
+    border: 2px solid var(--primary);
     color: #ffffff;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -250,8 +250,8 @@ a {
 }
 
 .btn-cta:hover {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
+    background: var(--accent);
+    border-color: var(--accent);
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(12, 61, 145, 0.25);
@@ -330,7 +330,7 @@ a {
     display: inline-block;
     padding: 1rem 2.5rem;
     background: #ffffff;
-    color: var(--primary-blue);
+    color: var(--primary);
     font-weight: 700;
     font-size: 1.1rem;
     border-radius: 50px;
@@ -508,7 +508,7 @@ a {
 
 .program-carousel .carousel-control-prev:hover,
 .program-carousel .carousel-control-next:hover {
-    background: var(--primary-blue);
+    background: var(--primary);
     box-shadow: 0 12px 28px rgba(8, 41, 95, 0.25);
 }
 
@@ -540,7 +540,7 @@ a {
 }
 
 .program-carousel .carousel-indicators button.active {
-    background-color: var(--primary-blue);
+    background-color: var(--primary);
     width: 32px;
     border-radius: 6px;
 }
@@ -614,7 +614,7 @@ a {
 .section-kicker {
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent-blue);
+    color: var(--accent);
     font-weight: 600;
     font-size: 0.75rem;
 }
@@ -637,7 +637,7 @@ a {
     letter-spacing: 1.6px;
     font-size: 0.72rem;
     font-weight: 600;
-    color: var(--accent-blue);
+    color: var(--accent);
     margin-bottom: 0.75rem;
 }
 
@@ -662,7 +662,7 @@ a {
     width: 0.65rem;
     height: 0.65rem;
     border-radius: 50%;
-    background: var(--accent-blue);
+    background: var(--accent);
 }
 
 .feature-card {
@@ -715,7 +715,7 @@ a {
     height: 48px;
     border-radius: 14px;
     background: rgba(49, 202, 49, 0.12);
-    color: var(--primary-blue);
+    color: var(--primary);
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 1.25rem;
@@ -771,7 +771,7 @@ a {
 }
 
 .blog-card .btn-link {
-    color: var(--primary-blue);
+    color: var(--primary);
     font-weight: 600;
     padding: 0;
 }
@@ -845,15 +845,15 @@ a {
     margin-top: 1.5rem;
     border-radius: 0.75rem;
     font-weight: 600;
-    color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 .sidebar-button:hover,
 .sidebar-button:focus {
     color: #ffffff;
-    background: var(--primary-blue);
-    border-color: var(--primary-blue);
+    background: var(--primary);
+    border-color: var(--primary);
 }
 
 .pagination,
@@ -901,7 +901,7 @@ ul.page-numbers .page-numbers {
 
 .nav-links .page-numbers.current,
 ul.page-numbers .page-numbers.current {
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #ffffff;
     border-color: transparent;
     box-shadow: 0 12px 24px rgba(12, 61, 145, 0.22);
@@ -921,8 +921,8 @@ ul.page-numbers .page-numbers.current::after {
 .nav-links a.page-numbers:focus,
 ul.page-numbers a.page-numbers:hover,
 ul.page-numbers a.page-numbers:focus {
-    color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    color: var(--primary);
+    border-color: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 12px 22px rgba(8, 41, 95, 0.16);
 }
@@ -959,7 +959,7 @@ ul.page-numbers .next {
 
 .site-footer {
     padding: 70px 0 30px;
-    background: linear-gradient(120deg, var(--primary-blue-dark), var(--primary-blue));
+    background: var(--primary);
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -1316,7 +1316,7 @@ ul.page-numbers .next {
 }
 
 .faq-item .accordion-button:not(.collapsed) {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: #ffffff;
     box-shadow: none;
 }
@@ -1347,7 +1347,7 @@ ul.page-numbers .next {
     min-width: 2.5rem;
     height: 2.5rem;
     padding: 0 0.75rem;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: #ffffff;
     font-weight: 700;
     font-size: 1rem;
@@ -1358,7 +1358,7 @@ ul.page-numbers .next {
 
 .faq-item .accordion-button:not(.collapsed) .faq-number {
     background: #ffffff;
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .faq-question {
@@ -1598,12 +1598,12 @@ ul.page-numbers .next {
 
 .vision-card .vm-icon {
     background: linear-gradient(135deg, rgba(49, 202, 49, 0.1) 0%, rgba(76, 212, 76, 0.15) 100%);
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .mission-card .vm-icon {
     background: linear-gradient(135deg, rgba(49, 202, 49, 0.1) 0%, rgba(76, 212, 76, 0.15) 100%);
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .vm-title {
@@ -1653,7 +1653,7 @@ ul.page-numbers .next {
     top: 0;
     width: 1.5rem;
     height: 1.5rem;
-    background: var(--primary-blue);
+    background: var(--primary);
     color: #ffffff;
     border-radius: 50%;
     display: flex;
