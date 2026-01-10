@@ -151,6 +151,18 @@ get_header();
                 3 => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
                 4 => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
             ];
+            $default_keunggulan_titles = [
+                1 => 'Kurikulum Industri',
+                2 => 'Fasilitas Modern',
+                3 => 'Pengajar Profesional',
+                4 => 'Jalur Karier',
+            ];
+            $default_keunggulan_texts = [
+                1 => 'Materi dirancang bersama mitra kesehatan untuk membekali kompetensi nyata.',
+                2 => 'Laboratorium praktik dan ruang simulasi yang mendukung pembelajaran aktif.',
+                3 => 'Tenaga pendidik berpengalaman di bidang kesehatan dan pendidikan vokasi.',
+                4 => 'Program pendampingan alumni dan kerja sama industri untuk penempatan kerja.',
+            ];
             ?>
             <div class="row g-4">
                 <?php for ($i = 1; $i <= 4; $i++): ?>
@@ -161,13 +173,13 @@ get_header();
                             ?>
                             <?php if ($keunggulan_image): ?>
                                 <div class="feature-image">
-                                    <img src="<?php echo esc_url($keunggulan_image); ?>" alt="<?php echo esc_attr(get_theme_mod("smk_keunggulan_title_{$i}", '')); ?>" loading="lazy">
+                                    <img src="<?php echo esc_url($keunggulan_image); ?>" alt="<?php echo esc_attr(get_theme_mod("smk_keunggulan_title_{$i}", $default_keunggulan_titles[$i])); ?>" loading="lazy">
                                 </div>
                             <?php endif; ?>
                             <div class="feature-content">
                                 <span class="feature-number"><?php echo esc_html(sprintf('%02d', $i)); ?></span>
-                                <h3><?php echo esc_html(get_theme_mod("smk_keunggulan_title_{$i}", '')); ?></h3>
-                                <p><?php echo esc_html(get_theme_mod("smk_keunggulan_text_{$i}", '')); ?></p>
+                                <h3><?php echo esc_html(get_theme_mod("smk_keunggulan_title_{$i}", $default_keunggulan_titles[$i])); ?></h3>
+                                <p><?php echo esc_html(get_theme_mod("smk_keunggulan_text_{$i}", $default_keunggulan_texts[$i])); ?></p>
                             </div>
                         </div>
                     </div>
