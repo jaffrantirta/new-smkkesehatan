@@ -1183,9 +1183,7 @@ ul.page-numbers .next {
 
 .faq-hero-container {
     position: relative;
-    height: 50vh;
-    min-height: 400px;
-    max-height: 500px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1359,8 +1357,7 @@ ul.page-numbers .next {
 /* FAQ Responsive Styles */
 @media (max-width: 991px) {
     .faq-hero-container {
-        height: 45vh;
-        min-height: 350px;
+        height: 300px;
     }
 
     .faq-hero-title {
@@ -1386,8 +1383,7 @@ ul.page-numbers .next {
 
 @media (max-width: 767px) {
     .faq-hero-container {
-        height: 40vh;
-        min-height: 300px;
+        height: 250px;
     }
 
     .faq-hero-title {
