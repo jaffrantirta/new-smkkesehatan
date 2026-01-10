@@ -641,11 +641,98 @@ function smkkesehatan_customize_register($wp_customize)
         'type' => 'textarea',
     ]);
 
+    // Fasilitas Page Section
+    $wp_customize->add_section('smkkesehatan_fasilitas', [
+        'title' => __('Fasilitas Page', 'smkkesehatan'),
+        'description' => __('Customize Fasilitas page content', 'smkkesehatan'),
+        'priority' => 42,
+    ]);
+
+    // Fasilitas Hero Settings
+    $wp_customize->add_setting('smk_fasilitas_hero_image', [
+        'default' => get_template_directory_uri() . '/assets/images/hero-default.jpg',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_fasilitas_hero_image', [
+        'label' => __('Fasilitas Hero Image', 'smkkesehatan'),
+        'section' => 'smkkesehatan_fasilitas',
+        'settings' => 'smk_fasilitas_hero_image',
+    ]));
+
+    $wp_customize->add_setting('smk_fasilitas_hero_title', [
+        'default' => 'Fasilitas',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_fasilitas_hero_title', [
+        'label' => __('Fasilitas Hero Title', 'smkkesehatan'),
+        'section' => 'smkkesehatan_fasilitas',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_fasilitas_hero_text', [
+        'default' => 'Fasilitas modern dan lengkap untuk mendukung pembelajaran vokasi kesehatan',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
+    $wp_customize->add_control('smk_fasilitas_hero_text', [
+        'label' => __('Fasilitas Hero Text', 'smkkesehatan'),
+        'section' => 'smkkesehatan_fasilitas',
+        'type' => 'textarea',
+    ]);
+
+    // Fasilitas Items (4 facilities)
+    $default_fasilitas_titles = [
+        1 => 'Ruang Kelas',
+        2 => 'Laboratorium Praktik',
+        3 => 'Perpustakaan',
+        4 => 'Ruang Simulasi Medis',
+    ];
+    $default_fasilitas_texts = [
+        1 => 'Ruang kelas yang luas dan nyaman sehingga proses pembelajaran dapat berlangsung dengan baik. Dilengkapi dengan fasilitas proyektor dan komputer.',
+        2 => 'Laboratorium dengan peralatan modern untuk praktik langsung, memastikan siswa mendapatkan pengalaman hands-on yang berkualitas.',
+        3 => 'Perpustakaan dengan koleksi buku dan jurnal kesehatan terlengkap, mendukung pembelajaran dan penelitian siswa.',
+        4 => 'Ruang simulasi medis dengan manekin dan peralatan medis standar industri untuk melatih keterampilan klinis siswa.',
+    ];
+
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_setting("smk_fasilitas_image_{$i}", [
+            'default' => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control(
+            $wp_customize,
+            "smk_fasilitas_image_{$i}",
+            [
+                'label' => sprintf(__('Fasilitas %d - Image', 'smkkesehatan'), $i),
+                'section' => 'smkkesehatan_fasilitas',
+            ]
+        ));
+
+        $wp_customize->add_setting("smk_fasilitas_title_{$i}", [
+            'default' => $default_fasilitas_titles[$i],
+            'sanitize_callback' => 'sanitize_text_field',
+        ]);
+        $wp_customize->add_control("smk_fasilitas_title_{$i}", [
+            'label' => sprintf(__('Fasilitas %d - Title', 'smkkesehatan'), $i),
+            'section' => 'smkkesehatan_fasilitas',
+            'type' => 'text',
+        ]);
+
+        $wp_customize->add_setting("smk_fasilitas_text_{$i}", [
+            'default' => $default_fasilitas_texts[$i],
+            'sanitize_callback' => 'wp_kses_post',
+        ]);
+        $wp_customize->add_control("smk_fasilitas_text_{$i}", [
+            'label' => sprintf(__('Fasilitas %d - Description (HTML allowed)', 'smkkesehatan'), $i),
+            'section' => 'smkkesehatan_fasilitas',
+            'type' => 'textarea',
+        ]);
+    }
+
     // FAQ Page Section
     $wp_customize->add_section('smkkesehatan_faq', [
         'title' => __('FAQ Page', 'smkkesehatan'),
         'description' => __('Customize FAQ page hero and questions', 'smkkesehatan'),
-        'priority' => 42,
+        'priority' => 43,
     ]);
 
     // FAQ Hero Settings
