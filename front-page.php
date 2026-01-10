@@ -212,22 +212,10 @@ get_header();
                                         <?php the_post_thumbnail('medium', ['class' => 'card-img-top blog-card-image']); ?>
                                     </a>
                                 <?php else: ?>
-                                    <a href="<?php the_permalink(); ?>" class="blog-card-image-link blog-card-placeholder">
-                                        <svg
-                                            viewBox="0 0 64 64"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="card-img-top blog-card-image icon-health-school"
-                                            role="img"
-                                            aria-label="Sekolah Kesehatan"
-                                        >
-                                            <rect width="64" height="64" rx="12" fill="#e6f4ef"/>
-                                            <path d="M20 50V26l12-8 12 8v24" fill="#ffffff" stroke="#2f8f6b" stroke-width="2"/>
-                                            <path d="M32 30v14M25 37h14" stroke="#2f8f6b" stroke-width="3" stroke-linecap="round"/>
-                                            <circle cx="44" cy="44" r="4" fill="#2f8f6b"/>
-                                        </svg>
+                                    <a href="<?php the_permalink(); ?>" class="blog-card-image-link">
+                                        <img src="http://www.staging.smkkesehatanbalidewata.sch.id/wp-content/uploads/2026/01/4-1.webp" class="card-img-top blog-card-image" alt="<?php the_title_attribute(); ?>">
                                     </a>
                                 <?php endif; ?>
-
                                 <div class="card-body">
                                     <p class="card-kicker"><?php echo esc_html(get_the_date()); ?></p>
                                     <h3 class="card-title">
