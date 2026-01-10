@@ -81,6 +81,20 @@ a {
     transition: all 0.3s ease;
 }
 
+.blog-card-placeholder {
+    background: #f4faf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-health-school {
+    padding: 24px;
+    height: 100%;
+    object-fit: contain;
+}
+
+
 .social-links a:hover {
     background: var(--accent-blue);
     transform: translateY(-2px);
