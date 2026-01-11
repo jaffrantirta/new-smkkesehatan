@@ -629,7 +629,10 @@ a {
 
 .section-header {
     max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 3rem;
+    text-align: center;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
