@@ -671,24 +671,35 @@ a {
     transform: translateY(0);
 }
 
-.blog-card:nth-child(1).animate-in {
+/* For front page where blog cards are direct children */
+.col-md-6:nth-child(1) .blog-card.animate-in,
+.col-lg-4:nth-child(1) .blog-card.animate-in {
     transition-delay: 0.1s;
 }
 
-.blog-card:nth-child(2).animate-in {
+.col-md-6:nth-child(2) .blog-card.animate-in,
+.col-lg-4:nth-child(2) .blog-card.animate-in {
     transition-delay: 0.2s;
 }
 
-.blog-card:nth-child(3).animate-in {
+.col-md-6:nth-child(3) .blog-card.animate-in,
+.col-lg-4:nth-child(3) .blog-card.animate-in {
     transition-delay: 0.3s;
 }
 
-.blog-card:nth-child(4).animate-in {
+.col-md-6:nth-child(4) .blog-card.animate-in,
+.col-lg-4:nth-child(4) .blog-card.animate-in {
     transition-delay: 0.4s;
 }
 
-.blog-card:nth-child(5).animate-in {
+.col-md-6:nth-child(5) .blog-card.animate-in,
+.col-lg-4:nth-child(5) .blog-card.animate-in {
     transition-delay: 0.5s;
+}
+
+.col-md-6:nth-child(6) .blog-card.animate-in,
+.col-lg-4:nth-child(6) .blog-card.animate-in {
+    transition-delay: 0.6s;
 }
 
 .kompetensi-card .card-body {

@@ -71,8 +71,8 @@ get_header();
 document.addEventListener('DOMContentLoaded', function() {
     // Intersection Observer for scroll animations
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -10px 0px'
     };
 
     const observer = new IntersectionObserver(function(entries) {
@@ -86,11 +86,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe section header
     const sectionHeader = document.querySelector('.section-header');
-    if (sectionHeader) observer.observe(sectionHeader);
+    if (sectionHeader) {
+        observer.observe(sectionHeader);
+    }
 
     // Observe blog cards
     const blogCards = document.querySelectorAll('.blog-card');
-    blogCards.forEach(card => observer.observe(card));
+    blogCards.forEach(function(card) {
+        observer.observe(card);
+    });
+
+    // Force animation for elements already in viewport
+    setTimeout(function() {
+        blogCards.forEach(function(card) {
+            const rect = card.getBoundingClientRect();
+            const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isInViewport && !card.classList.contains('animate-in')) {
+                card.classList.add('animate-in');
+            }
+        });
+
+        if (sectionHeader) {
+            const rect = sectionHeader.getBoundingClientRect();
+            const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isInViewport && !sectionHeader.classList.contains('animate-in')) {
+                sectionHeader.classList.add('animate-in');
+            }
+        }
+    }, 100);
 });
 </script>
 
