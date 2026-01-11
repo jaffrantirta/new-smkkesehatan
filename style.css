@@ -2120,46 +2120,47 @@ ul.page-numbers .next {
 .fasilitas-item {
     margin-bottom: 6rem;
     position: relative;
+}
+
+.fasilitas-content,
+.fasilitas-image {
     opacity: 0;
+    will-change: transform, opacity;
 }
 
 .fasilitas-item.animate-in .fasilitas-content {
-    animation: fadeInLeft 0.8s ease-out forwards;
+    animation: fadeInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .fasilitas-item.animate-in .fasilitas-image {
-    animation: fadeInRight 0.8s ease-out 0.2s forwards;
+    animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
 .fasilitas-item-reverse.animate-in .fasilitas-content {
-    animation: fadeInRight 0.8s ease-out forwards;
+    animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .fasilitas-item-reverse.animate-in .fasilitas-image {
-    animation: fadeInLeft 0.8s ease-out 0.2s forwards;
-}
-
-.fasilitas-item.animate-in {
-    opacity: 1;
+    animation: fadeInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
 @keyframes fadeInLeft {
-    from {
+    0% {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateX(-50px);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes fadeInRight {
-    from {
+    0% {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateX(50px);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
