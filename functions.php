@@ -390,16 +390,42 @@ function badewatheme_customize_register($wp_customize)
         'type' => 'textarea',
     ]);
 
+    // Number of Kompetensi items
+    $wp_customize->add_setting('smk_kompetensi_count', [
+        'default' => 2,
+        'sanitize_callback' => 'absint',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('smk_kompetensi_count', [
+        'label' => __('Number of Program Items', 'badewatheme'),
+        'description' => __('How many program items to display (1-6)', 'badewatheme'),
+        'section' => 'badewatheme_kompetensi',
+        'type' => 'number',
+        'input_attrs' => [
+            'min' => 1,
+            'max' => 6,
+            'step' => 1,
+        ],
+    ]);
+
     $default_kompetensi_titles = [
         1 => 'Asisten Keperawatan',
         2 => 'Farmasi Klinis',
+        3 => 'Teknologi Laboratorium Medik',
+        4 => 'Rekam Medis dan Informasi Kesehatan',
+        5 => 'Dental Assisting',
+        6 => 'Caregiver',
     ];
     $default_kompetensi_texts = [
         1 => 'Memberikan perawatan dasar pasien, membantu dokter dan perawat dalam prosedur medis, serta memastikan kenyamanan dan keselamatan pasien.',
         2 => 'Mengelola dan menyiapkan obat-obatan, memberikan konseling kepada pasien tentang penggunaan obat yang tepat dan aman.',
+        3 => 'Melakukan analisis laboratorium untuk mendukung diagnosis penyakit dan pemantauan kesehatan pasien.',
+        4 => 'Mengelola sistem informasi kesehatan, dokumentasi medis, dan administrasi rumah sakit secara profesional.',
+        5 => 'Membantu dokter gigi dalam perawatan dan prosedur dental, serta edukasi kesehatan gigi kepada pasien.',
+        6 => 'Memberikan perawatan holistik kepada lansia dan pasien yang membutuhkan perawatan jangka panjang.',
     ];
 
-    for ($i = 1; $i <= 2; $i++) {
+    for ($i = 1; $i <= 6; $i++) {
         $wp_customize->add_setting("smk_kompetensi_image_{$i}", [
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',

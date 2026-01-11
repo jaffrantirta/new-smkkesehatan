@@ -70,24 +70,40 @@ get_header();
                 <p><?php echo esc_html(get_theme_mod('smk_kompetensi_intro', 'Jalur pembelajaran spesifik dengan sertifikasi dan praktik industri untuk karier masa depan.')); ?></p>
             </div>
             <?php
+            $kompetensi_count = absint(get_theme_mod('smk_kompetensi_count', 2));
+            if ($kompetensi_count < 1) $kompetensi_count = 1;
+            if ($kompetensi_count > 6) $kompetensi_count = 6;
+
             $default_images = [
                 1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
                 2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80',
+                3 => 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80',
+                4 => 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=1200&q=80',
+                5 => 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80',
+                6 => 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=1200&q=80',
             ];
             $default_titles = [
                 1 => 'Asisten Keperawatan',
                 2 => 'Farmasi Klinis',
+                3 => 'Teknologi Laboratorium Medik',
+                4 => 'Rekam Medis dan Informasi Kesehatan',
+                5 => 'Dental Assisting',
+                6 => 'Caregiver',
             ];
             $default_texts = [
                 1 => 'Memberikan perawatan dasar pasien, membantu dokter dan perawat dalam prosedur medis, serta memastikan kenyamanan dan keselamatan pasien.',
                 2 => 'Mengelola dan menyiapkan obat-obatan, memberikan konseling kepada pasien tentang penggunaan obat yang tepat dan aman.',
+                3 => 'Melakukan analisis laboratorium untuk mendukung diagnosis penyakit dan pemantauan kesehatan pasien.',
+                4 => 'Mengelola sistem informasi kesehatan, dokumentasi medis, dan administrasi rumah sakit secara profesional.',
+                5 => 'Membantu dokter gigi dalam perawatan dan prosedur dental, serta edukasi kesehatan gigi kepada pasien.',
+                6 => 'Memberikan perawatan holistik kepada lansia dan pasien yang membutuhkan perawatan jangka panjang.',
             ];
             $kompetensi_items = [];
-            for ($i = 1; $i <= 2; $i++) {
+            for ($i = 1; $i <= $kompetensi_count; $i++) {
                 $kompetensi_items[] = [
-                    'image' => get_theme_mod("smk_kompetensi_image_{$i}", $default_images[$i]),
-                    'title' => get_theme_mod("smk_kompetensi_title_{$i}", $default_titles[$i]),
-                    'text' => get_theme_mod("smk_kompetensi_text_{$i}", $default_texts[$i]),
+                    'image' => get_theme_mod("smk_kompetensi_image_{$i}", isset($default_images[$i]) ? $default_images[$i] : ''),
+                    'title' => get_theme_mod("smk_kompetensi_title_{$i}", isset($default_titles[$i]) ? $default_titles[$i] : ''),
+                    'text' => get_theme_mod("smk_kompetensi_text_{$i}", isset($default_texts[$i]) ? $default_texts[$i] : ''),
                 ];
             }
             ?>

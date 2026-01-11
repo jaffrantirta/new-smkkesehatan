@@ -12,6 +12,7 @@ A modern, professional WordPress theme designed for educational institutions and
 
 - ✅ Fully Responsive Design
 - ✅ Customizable Color Scheme (6 color options)
+- ✅ Dynamic Kompetensi Section (1-6 program carousel)
 - ✅ Dynamic Keunggulan Section (1-8 items)
 - ✅ Smooth Scroll Animations
 - ✅ Custom Page Templates (About, Contact, FAQ, Facilities)
@@ -47,7 +48,7 @@ Navigate to **Appearance → Customize → Theme Colors** to customize:
 - Header Settings (Phone, Email, Social Media)
 - Hero Section
 - Sambutan (Welcome Message)
-- Program Kompetensi
+- Kompetensi Keahlian/Program (Dynamic count 1-6 carousel items, customizable content)
 - Keunggulan/Advantages (Dynamic count 1-8 items, customizable content)
 - About Page Content
 - FAQ Items
