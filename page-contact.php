@@ -162,5 +162,54 @@ $contact_tiktok = get_theme_mod('smk_contact_tiktok', '');
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+
+                // Animate children elements
+                if (entry.target.classList.contains('contact-info-card')) {
+                    const items = entry.target.querySelectorAll('.contact-info-item');
+                    items.forEach(item => {
+                        item.classList.add('animate-in');
+                    });
+
+                    const whatsappCta = entry.target.querySelector('.contact-whatsapp-cta');
+                    if (whatsappCta) {
+                        whatsappCta.classList.add('animate-in');
+                    }
+
+                    const social = entry.target.querySelector('.contact-social');
+                    if (social) {
+                        social.classList.add('animate-in');
+                        const socialLinks = social.querySelectorAll('.contact-social-link');
+                        socialLinks.forEach(link => {
+                            link.classList.add('animate-in');
+                        });
+                    }
+                }
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements
+    const contactInfoCard = document.querySelector('.contact-info-card');
+    const contactMapCard = document.querySelector('.contact-map-card');
+
+    if (contactInfoCard) observer.observe(contactInfoCard);
+    if (contactMapCard) observer.observe(contactMapCard);
+});
+</script>
+
 <?php
 get_footer();

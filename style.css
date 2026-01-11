@@ -2158,7 +2158,6 @@ ul.page-numbers .next {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 126, 65, 0.85) 0%, rgba(76, 212, 76, 0.7) 100%);
     z-index: 1;
 }
 
@@ -2180,6 +2179,7 @@ ul.page-numbers .next {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .contact-hero-text {
@@ -2188,6 +2188,7 @@ ul.page-numbers .next {
     line-height: 1.6;
     margin: 0;
     opacity: 0.95;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 /* Contact Content Section */
@@ -2202,6 +2203,14 @@ ul.page-numbers .next {
     padding: 2.5rem;
     box-shadow: 0 4px 20px rgba(8, 41, 95, 0.08);
     height: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.contact-info-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contact-info-title {
@@ -2226,8 +2235,22 @@ ul.page-numbers .next {
     display: flex;
     gap: 1.25rem;
     margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(12, 61, 145, 0.1);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.contact-info-item.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-info-item:nth-child(1).animate-in {
+    transition-delay: 0.1s;
+}
+
+.contact-info-item:nth-child(2).animate-in {
+    transition-delay: 0.2s;
 }
 
 .contact-info-item:last-child {
@@ -2285,6 +2308,15 @@ ul.page-numbers .next {
 .contact-social {
     padding-top: 2rem;
     border-top: 1px solid rgba(12, 61, 145, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition-delay: 0.4s;
+}
+
+.contact-social.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contact-social-title {
@@ -2312,6 +2344,29 @@ ul.page-numbers .next {
     transition: all 0.3s ease;
     text-decoration: none;
     border: 1px solid transparent;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.contact-social-link.animate-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.contact-social-link:nth-child(1).animate-in {
+    transition-delay: 0.5s;
+}
+
+.contact-social-link:nth-child(2).animate-in {
+    transition-delay: 0.6s;
+}
+
+.contact-social-link:nth-child(3).animate-in {
+    transition-delay: 0.7s;
+}
+
+.contact-social-link:nth-child(4).animate-in {
+    transition-delay: 0.8s;
 }
 
 .contact-social-link:hover {
@@ -2336,6 +2391,15 @@ ul.page-numbers .next {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(8, 41, 95, 0.08);
     height: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0.2s;
+}
+
+.contact-map-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contact-map-iframe {
@@ -2498,6 +2562,15 @@ ul.page-numbers .next {
 .contact-whatsapp-cta {
     margin-top: 2.5rem;
     margin-bottom: 2rem;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition-delay: 0.3s;
+}
+
+.contact-whatsapp-cta.animate-in {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .contact-whatsapp-btn {
