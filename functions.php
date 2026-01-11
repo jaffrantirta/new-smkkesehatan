@@ -160,6 +160,59 @@ function badewatheme_customize_register($wp_customize)
         'settings' => 'smk_blog_default_image',
     ]));
 
+    // Floating WhatsApp Button Section
+    $wp_customize->add_section('badewatheme_floating_whatsapp', [
+        'title' => __('Floating WhatsApp Button', 'badewatheme'),
+        'description' => __('Configure the floating WhatsApp button', 'badewatheme'),
+        'priority' => 28.6,
+    ]);
+
+    $wp_customize->add_setting('smk_floating_whatsapp_enable', [
+        'default' => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ]);
+    $wp_customize->add_control('smk_floating_whatsapp_enable', [
+        'label' => __('Enable Floating WhatsApp Button', 'badewatheme'),
+        'section' => 'badewatheme_floating_whatsapp',
+        'type' => 'checkbox',
+    ]);
+
+    $wp_customize->add_setting('smk_floating_whatsapp_number', [
+        'default' => '+6281234567890',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_floating_whatsapp_number', [
+        'label' => __('WhatsApp Number', 'badewatheme'),
+        'description' => __('Format: +62XXXXXXXXXX', 'badewatheme'),
+        'section' => 'badewatheme_floating_whatsapp',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_floating_whatsapp_message', [
+        'default' => 'Hello! I would like to get more information.',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
+    $wp_customize->add_control('smk_floating_whatsapp_message', [
+        'label' => __('Default Message', 'badewatheme'),
+        'description' => __('Pre-filled message when chat opens', 'badewatheme'),
+        'section' => 'badewatheme_floating_whatsapp',
+        'type' => 'textarea',
+    ]);
+
+    $wp_customize->add_setting('smk_floating_whatsapp_position', [
+        'default' => 'right',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_floating_whatsapp_position', [
+        'label' => __('Button Position', 'badewatheme'),
+        'section' => 'badewatheme_floating_whatsapp',
+        'type' => 'select',
+        'choices' => [
+            'left' => __('Bottom Left', 'badewatheme'),
+            'right' => __('Bottom Right', 'badewatheme'),
+        ],
+    ]);
+
     // Header Section
     $wp_customize->add_section('badewatheme_header', [
         'title' => __('Header Settings', 'badewatheme'),
