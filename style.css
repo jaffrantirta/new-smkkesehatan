@@ -2881,11 +2881,11 @@ ul.page-numbers .next {
    Our Team Section
    =================================== */
 .team-section {
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
 
 .team-section .section-header {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .team-section .section-title {
@@ -2902,74 +2902,144 @@ ul.page-numbers .next {
     margin: 0 auto;
 }
 
-.team-card {
+/* Team Image Wrapper */
+.team-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.team-image-wrapper.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.team-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/5;
+}
+
+.team-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--cream) 0%, #e8e9ed 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--muted);
+}
+
+.team-image-placeholder svg {
+    opacity: 0.4;
+}
+
+.team-image-placeholder p {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+/* Team Members Grid */
+.team-members-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.team-member-card {
     background: #ffffff;
     border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    height: 100%;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(30px);
+    border-left: 4px solid transparent;
 }
 
-.team-card.animate-in {
+.team-member-card.animate-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
-.team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+.team-member-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateX(-4px);
+    border-left-color: var(--primary);
 }
 
-.team-card-image {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(135deg, var(--cream) 0%, #f0f0f0 100%);
+.team-member-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-.team-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.team-member-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 126, 65, 0.25);
 }
 
-.team-card:hover .team-card-image img {
-    transform: scale(1.05);
-}
-
-.team-card-body {
-    padding: 1.75rem 1.5rem;
-    text-align: center;
-}
-
-.team-card-name {
-    font-size: 1.375rem;
+.team-member-avatar span {
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
+    color: #ffffff;
     font-family: var(--font-serif);
 }
 
-.team-card-title {
-    font-size: 1rem;
+.team-member-info {
+    flex: 1;
+}
+
+.team-member-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.25rem 0;
+    font-family: var(--font-serif);
+}
+
+.team-member-title {
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--primary);
-    margin-bottom: 1rem;
+    margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.team-card-description {
+.team-member-description {
     font-size: 0.938rem;
     color: var(--muted);
     line-height: 1.6;
     margin: 0;
 }
+
+/* Stagger animation for team member cards */
+.team-member-card:nth-child(1) { transition-delay: 0.1s; }
+.team-member-card:nth-child(2) { transition-delay: 0.2s; }
+.team-member-card:nth-child(3) { transition-delay: 0.3s; }
+.team-member-card:nth-child(4) { transition-delay: 0.4s; }
+.team-member-card:nth-child(5) { transition-delay: 0.5s; }
+.team-member-card:nth-child(6) { transition-delay: 0.6s; }
+.team-member-card:nth-child(7) { transition-delay: 0.7s; }
+.team-member-card:nth-child(8) { transition-delay: 0.8s; }
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -2977,12 +3047,33 @@ ul.page-numbers .next {
         font-size: 2rem;
     }
 
-    .team-card-image {
-        height: 250px;
+    .team-image {
+        aspect-ratio: 16/10;
     }
 
-    .team-card-name {
-        font-size: 1.25rem;
+    .team-image-placeholder {
+        aspect-ratio: 16/10;
+    }
+
+    .team-section .row {
+        flex-direction: column-reverse;
+    }
+
+    .team-image-wrapper {
+        transform: translateY(50px);
+        margin-top: 2rem;
+    }
+
+    .team-image-wrapper.animate-in {
+        transform: translateY(0);
+    }
+
+    .team-member-card {
+        transform: translateY(30px);
+    }
+
+    .team-member-card.animate-in {
+        transform: translateY(0);
     }
 }
 
@@ -2995,23 +3086,40 @@ ul.page-numbers .next {
         font-size: 1rem;
     }
 
-    .team-card-image {
-        height: 280px;
+    .team-section .section-header {
+        margin-bottom: 2.5rem;
     }
 
-    .team-card-body {
-        padding: 1.5rem 1.25rem;
+    .team-member-card {
+        padding: 1.25rem;
     }
 
-    .team-card-name {
+    .team-member-avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .team-member-avatar span {
+        font-size: 1.25rem;
+    }
+
+    .team-member-name {
         font-size: 1.125rem;
     }
 
-    .team-card-title {
+    .team-member-title {
+        font-size: 0.813rem;
+    }
+
+    .team-member-description {
         font-size: 0.875rem;
     }
 
-    .team-card-description {
-        font-size: 0.875rem;
+    .team-image {
+        aspect-ratio: 1/1;
+    }
+
+    .team-image-placeholder {
+        aspect-ratio: 1/1;
     }
 }

@@ -113,21 +113,10 @@ $mission_items = get_theme_mod('smk_mission_items', "Menyelenggarakan pendidikan
 <?php
 $team_title = get_theme_mod('smk_team_title', 'Our Team');
 $team_description = get_theme_mod('smk_team_description', 'Meet our dedicated team of professionals committed to providing quality education.');
+$team_image = get_theme_mod('smk_team_image', '');
 $team_count = absint(get_theme_mod('smk_team_count', 4));
 if ($team_count < 1) $team_count = 1;
 if ($team_count > 8) $team_count = 8;
-
-// Determine column class based on count
-$col_class = 'col-md-6 col-lg-3'; // Default for 4 items
-if ($team_count <= 2) {
-    $col_class = 'col-md-6';
-} elseif ($team_count == 3) {
-    $col_class = 'col-md-6 col-lg-4';
-} elseif ($team_count >= 5 && $team_count <= 6) {
-    $col_class = 'col-md-6 col-lg-4';
-} elseif ($team_count >= 7) {
-    $col_class = 'col-md-6 col-lg-3';
-}
 ?>
 <section class="team-section section-pad">
     <div class="container">
@@ -136,28 +125,46 @@ if ($team_count <= 2) {
             <p class="section-description"><?php echo esc_html($team_description); ?></p>
         </div>
 
-        <div class="row g-4">
-            <?php for ($i = 1; $i <= $team_count; $i++):
-                $team_image = get_theme_mod("smk_team_image_{$i}", '');
-                $team_name = get_theme_mod("smk_team_name_{$i}", "Team Member {$i}");
-                $team_title_text = get_theme_mod("smk_team_title_{$i}", 'Position');
-                $team_desc = get_theme_mod("smk_team_description_{$i}", 'Description of team member role and responsibilities.');
-            ?>
-                <div class="<?php echo esc_attr($col_class); ?>">
-                    <div class="team-card">
-                        <?php if ($team_image): ?>
-                            <div class="team-card-image">
-                                <img src="<?php echo esc_url($team_image); ?>" alt="<?php echo esc_attr($team_name); ?>">
-                            </div>
-                        <?php endif; ?>
-                        <div class="team-card-body">
-                            <h3 class="team-card-name"><?php echo esc_html($team_name); ?></h3>
-                            <p class="team-card-title"><?php echo esc_html($team_title_text); ?></p>
-                            <p class="team-card-description"><?php echo esc_html($team_desc); ?></p>
+        <div class="row g-5 align-items-center">
+            <!-- Team Image -->
+            <div class="col-lg-5">
+                <div class="team-image-wrapper">
+                    <?php if ($team_image): ?>
+                        <img src="<?php echo esc_url($team_image); ?>" alt="<?php echo esc_attr($team_title); ?>" class="team-image">
+                    <?php else: ?>
+                        <div class="team-image-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                            </svg>
+                            <p>Team Photo</p>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
-            <?php endfor; ?>
+            </div>
+
+            <!-- Team Members List -->
+            <div class="col-lg-7">
+                <div class="team-members-grid">
+                    <?php for ($i = 1; $i <= $team_count; $i++):
+                        $team_name = get_theme_mod("smk_team_name_{$i}", "Team Member {$i}");
+                        $team_title_text = get_theme_mod("smk_team_title_{$i}", 'Position');
+                        $team_desc = get_theme_mod("smk_team_description_{$i}", 'Description of team member role and responsibilities.');
+                    ?>
+                        <div class="team-member-card">
+                            <div class="team-member-header">
+                                <div class="team-member-avatar">
+                                    <span><?php echo esc_html(substr($team_name, 0, 1)); ?></span>
+                                </div>
+                                <div class="team-member-info">
+                                    <h3 class="team-member-name"><?php echo esc_html($team_name); ?></h3>
+                                    <p class="team-member-title"><?php echo esc_html($team_title_text); ?></p>
+                                </div>
+                            </div>
+                            <p class="team-member-description"><?php echo esc_html($team_desc); ?></p>
+                        </div>
+                    <?php endfor; ?>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -183,14 +190,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const aboutContent = document.querySelector('.about-content');
     const aboutImage = document.querySelector('.about-image');
     const vmCards = document.querySelectorAll('.vm-card');
-    const teamCards = document.querySelectorAll('.team-card');
-    const sectionHeader = document.querySelector('.team-section .section-header');
+    const teamImageWrapper = document.querySelector('.team-image-wrapper');
+    const teamMemberCards = document.querySelectorAll('.team-member-card');
+    const teamSectionHeader = document.querySelector('.team-section .section-header');
 
     if (aboutContent) observer.observe(aboutContent);
     if (aboutImage) observer.observe(aboutImage);
     vmCards.forEach(card => observer.observe(card));
-    teamCards.forEach(card => observer.observe(card));
-    if (sectionHeader) observer.observe(sectionHeader);
+    if (teamImageWrapper) observer.observe(teamImageWrapper);
+    teamMemberCards.forEach(card => observer.observe(card));
+    if (teamSectionHeader) observer.observe(teamSectionHeader);
 });
 </script>
 

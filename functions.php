@@ -908,6 +908,21 @@ function badewatheme_customize_register($wp_customize)
         'type' => 'textarea',
     ]);
 
+    // Single Team Image
+    $wp_customize->add_setting('smk_team_image', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'smk_team_image',
+        [
+            'label' => __('Team Photo', 'badewatheme'),
+            'description' => __('Upload a group photo of your team', 'badewatheme'),
+            'section' => 'badewatheme_team',
+        ]
+    ));
+
     // Number of Team Members
     $wp_customize->add_setting('smk_team_count', [
         'default' => 4,
@@ -958,19 +973,6 @@ function badewatheme_customize_register($wp_customize)
     ];
 
     for ($i = 1; $i <= 8; $i++) {
-        $wp_customize->add_setting("smk_team_image_{$i}", [
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ]);
-        $wp_customize->add_control(new WP_Customize_Image_Control(
-            $wp_customize,
-            "smk_team_image_{$i}",
-            [
-                'label' => sprintf(__('Team Member %d - Image', 'badewatheme'), $i),
-                'section' => 'badewatheme_team',
-            ]
-        ));
-
         $wp_customize->add_setting("smk_team_name_{$i}", [
             'default' => $default_team_names[$i],
             'sanitize_callback' => 'sanitize_text_field',

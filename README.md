@@ -54,7 +54,7 @@ Navigate to **Appearance → Customize → Theme Colors** to customize:
 - Kompetensi Keahlian/Program (Dynamic count 1-10 carousel items, customizable content)
 - Keunggulan/Advantages (Dynamic count 1-8 items, customizable content)
 - About Page Content
-- Our Team (Dynamic count 1-8 team members with image, name, title, description)
+- Our Team (Single team photo, 1-8 team members with name, title, description)
 - FAQ Items
 - Facilities
 - Contact Information
