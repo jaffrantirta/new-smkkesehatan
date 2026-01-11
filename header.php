@@ -87,7 +87,7 @@
                 <?php endif; ?>
                 <span class="navbar-title"><?php bloginfo('name'); ?></span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation', 'smkkesehatan'); ?>">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation', 'badewatheme'); ?>">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="primaryNavbar">

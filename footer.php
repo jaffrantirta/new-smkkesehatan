@@ -1,6 +1,6 @@
 <?php
 $footer_about = get_theme_mod('smk_footer_about', 'Sekolah vokasi kesehatan yang berfokus pada pendidikan profesional, berintegritas, dan siap kerja.');
-$footer_contact = get_theme_mod('smk_footer_contact', "Jl. Raya Pendidikan No. 10, Denpasar, Bali\nTelp: (0361) 123-456\nEmail: info@smkkesehatanbd.sch.id");
+$footer_contact = get_theme_mod('smk_footer_contact', "Jl. Raya Pendidikan No. 10, Denpasar, Bali\nTelp: (0361) 123-456\nEmail: info@badewathemebd.sch.id");
 $footer_links_title = get_theme_mod('smk_footer_links_title', 'Tautan Cepat');
 $footer_links_raw = get_theme_mod('smk_footer_links', "Kompetensi Keahlian|#kompetensi\nKeunggulan|#keunggulan\nLatest Blog|#blog");
 $footer_links = preg_split('/\r\n|\r|\n/', (string) $footer_links_raw);

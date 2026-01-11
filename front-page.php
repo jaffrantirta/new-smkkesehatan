@@ -94,7 +94,7 @@ get_header();
             <div id="programCarousel" class="carousel slide program-carousel" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-indicators">
                     <?php foreach ($kompetensi_items as $index => $item): ?>
-                        <button type="button" data-bs-target="#programCarousel" data-bs-slide-to="<?php echo esc_attr($index); ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>" aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>" aria-label="<?php echo esc_attr(sprintf(__('Program %d', 'smkkesehatan'), $index + 1)); ?>"></button>
+                        <button type="button" data-bs-target="#programCarousel" data-bs-slide-to="<?php echo esc_attr($index); ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>" aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>" aria-label="<?php echo esc_attr(sprintf(__('Program %d', 'badewatheme'), $index + 1)); ?>"></button>
                     <?php endforeach; ?>
                 </div>
                 <div class="carousel-inner">
@@ -127,11 +127,11 @@ get_header();
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#programCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden"><?php esc_html_e('Previous', 'smkkesehatan'); ?></span>
+                    <span class="visually-hidden"><?php esc_html_e('Previous', 'badewatheme'); ?></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#programCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden"><?php esc_html_e('Next', 'smkkesehatan'); ?></span>
+                    <span class="visually-hidden"><?php esc_html_e('Next', 'badewatheme'); ?></span>
                 </button>
             </div>
         </div>
@@ -211,11 +211,14 @@ get_header();
                                     <a href="<?php the_permalink(); ?>" class="blog-card-image-link">
                                         <?php the_post_thumbnail('medium', ['class' => 'card-img-top blog-card-image']); ?>
                                     </a>
-                                <?php else: ?>
-                                    <a href="<?php the_permalink(); ?>" class="blog-card-image-link">
-                                        <img src="http://www.staging.smkkesehatanbalidewata.sch.id/wp-content/uploads/2026/01/4-1.webp" class="card-img-top blog-card-image" alt="<?php the_title_attribute(); ?>">
-                                    </a>
-                                <?php endif; ?>
+                                <?php else:
+                                    $default_image = get_theme_mod('smk_blog_default_image', '');
+                                    if ($default_image): ?>
+                                        <a href="<?php the_permalink(); ?>" class="blog-card-image-link">
+                                            <img src="<?php echo esc_url($default_image); ?>" class="card-img-top blog-card-image" alt="<?php the_title_attribute(); ?>">
+                                        </a>
+                                    <?php endif;
+                                endif; ?>
                                 <div class="card-body">
                                     <p class="card-kicker"><?php echo esc_html(get_the_date()); ?></p>
                                     <h3 class="card-title">

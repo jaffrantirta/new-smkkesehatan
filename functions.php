@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-function smkkesehatan_theme_setup()
+function badewatheme_theme_setup()
 {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -17,16 +17,16 @@ function smkkesehatan_theme_setup()
         'flex-width' => true,
     ]);
     register_nav_menus([
-        'primary' => __('Primary Menu', 'smkkesehatan'),
+        'primary' => __('Primary Menu', 'badewatheme'),
     ]);
 }
 
-add_action('after_setup_theme', 'smkkesehatan_theme_setup');
+add_action('after_setup_theme', 'badewatheme_theme_setup');
 
-function smkkesehatan_assets()
+function badewatheme_assets()
 {
     wp_enqueue_style(
-        'smkkesehatan-fonts',
+        'badewatheme-fonts',
         'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap',
         [],
         null
@@ -38,9 +38,9 @@ function smkkesehatan_assets()
         '5.3.3'
     );
     wp_enqueue_style(
-        'smkkesehatan-style',
+        'badewatheme-style',
         get_stylesheet_uri(),
-        ['bootstrap', 'smkkesehatan-fonts'],
+        ['bootstrap', 'badewatheme-fonts'],
         '1.0.0'
     );
     wp_enqueue_script(
@@ -51,7 +51,7 @@ function smkkesehatan_assets()
         true
     );
     wp_enqueue_script(
-        'smkkesehatan-menu',
+        'badewatheme-menu',
         get_template_directory_uri() . '/js/menu.js',
         ['bootstrap-bundle'],
         '1.0.0',
@@ -59,14 +59,14 @@ function smkkesehatan_assets()
     );
 }
 
-add_action('wp_enqueue_scripts', 'smkkesehatan_assets');
+add_action('wp_enqueue_scripts', 'badewatheme_assets');
 
-function smkkesehatan_customize_register($wp_customize)
+function badewatheme_customize_register($wp_customize)
 {
     // Theme Colors Section
-    $wp_customize->add_section('smkkesehatan_colors', [
-        'title' => __('Theme Colors', 'smkkesehatan'),
-        'description' => __('Customize the color scheme of your website', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_colors', [
+        'title' => __('Theme Colors', 'badewatheme'),
+        'description' => __('Customize the color scheme of your website', 'badewatheme'),
         'priority' => 28,
     ]);
 
@@ -77,9 +77,9 @@ function smkkesehatan_customize_register($wp_customize)
         'transport' => 'refresh',
     ]);
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smk_color_primary', [
-        'label' => __('Primary Color', 'smkkesehatan'),
-        'description' => __('Main brand color used for buttons, links, and highlights', 'smkkesehatan'),
-        'section' => 'smkkesehatan_colors',
+        'label' => __('Primary Color', 'badewatheme'),
+        'description' => __('Main brand color used for buttons, links, and highlights', 'badewatheme'),
+        'section' => 'badewatheme_colors',
     ]));
 
     // Primary Dark Color
@@ -89,9 +89,9 @@ function smkkesehatan_customize_register($wp_customize)
         'transport' => 'refresh',
     ]);
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smk_color_primary_dark', [
-        'label' => __('Primary Dark Color', 'smkkesehatan'),
-        'description' => __('Darker shade of primary color for hover states', 'smkkesehatan'),
-        'section' => 'smkkesehatan_colors',
+        'label' => __('Primary Dark Color', 'badewatheme'),
+        'description' => __('Darker shade of primary color for hover states', 'badewatheme'),
+        'section' => 'badewatheme_colors',
     ]));
 
     // Accent Color
@@ -101,9 +101,9 @@ function smkkesehatan_customize_register($wp_customize)
         'transport' => 'refresh',
     ]);
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smk_color_accent', [
-        'label' => __('Accent Color', 'smkkesehatan'),
-        'description' => __('Secondary accent color for highlights and badges', 'smkkesehatan'),
-        'section' => 'smkkesehatan_colors',
+        'label' => __('Accent Color', 'badewatheme'),
+        'description' => __('Secondary accent color for highlights and badges', 'badewatheme'),
+        'section' => 'badewatheme_colors',
     ]));
 
     // Cream Color
@@ -113,9 +113,9 @@ function smkkesehatan_customize_register($wp_customize)
         'transport' => 'refresh',
     ]);
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smk_color_cream', [
-        'label' => __('Cream/Background Color', 'smkkesehatan'),
-        'description' => __('Light background color for sections', 'smkkesehatan'),
-        'section' => 'smkkesehatan_colors',
+        'label' => __('Cream/Background Color', 'badewatheme'),
+        'description' => __('Light background color for sections', 'badewatheme'),
+        'section' => 'badewatheme_colors',
     ]));
 
     // Ink Color
@@ -125,9 +125,9 @@ function smkkesehatan_customize_register($wp_customize)
         'transport' => 'refresh',
     ]);
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smk_color_ink', [
-        'label' => __('Ink/Text Color', 'smkkesehatan'),
-        'description' => __('Main text color for headings and body text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_colors',
+        'label' => __('Ink/Text Color', 'badewatheme'),
+        'description' => __('Main text color for headings and body text', 'badewatheme'),
+        'section' => 'badewatheme_colors',
     ]));
 
     // Muted Color
@@ -137,14 +137,32 @@ function smkkesehatan_customize_register($wp_customize)
         'transport' => 'refresh',
     ]);
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'smk_color_muted', [
-        'label' => __('Muted Text Color', 'smkkesehatan'),
-        'description' => __('Secondary text color for descriptions and meta information', 'smkkesehatan'),
-        'section' => 'smkkesehatan_colors',
+        'label' => __('Muted Text Color', 'badewatheme'),
+        'description' => __('Secondary text color for descriptions and meta information', 'badewatheme'),
+        'section' => 'badewatheme_colors',
+    ]));
+
+    // Blog Settings Section
+    $wp_customize->add_section('badewatheme_blog', [
+        'title' => __('Blog Settings', 'badewatheme'),
+        'description' => __('Customize blog appearance', 'badewatheme'),
+        'priority' => 28.5,
+    ]);
+
+    $wp_customize->add_setting('smk_blog_default_image', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_blog_default_image', [
+        'label' => __('Default Blog Image', 'badewatheme'),
+        'description' => __('This image will be used for blog posts that don\'t have a featured image', 'badewatheme'),
+        'section' => 'badewatheme_blog',
+        'settings' => 'smk_blog_default_image',
     ]));
 
     // Header Section
-    $wp_customize->add_section('smkkesehatan_header', [
-        'title' => __('Header Settings', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_header', [
+        'title' => __('Header Settings', 'badewatheme'),
         'priority' => 29,
     ]);
 
@@ -153,8 +171,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_header_phone', [
-        'label' => __('Phone Number', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('Phone Number', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'text',
     ]);
 
@@ -163,8 +181,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_email',
     ]);
     $wp_customize->add_control('smk_header_email', [
-        'label' => __('Email Address', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('Email Address', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'email',
     ]);
 
@@ -173,8 +191,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_header_instagram', [
-        'label' => __('Instagram URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('Instagram URL', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'url',
     ]);
 
@@ -183,8 +201,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_header_facebook', [
-        'label' => __('Facebook URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('Facebook URL', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'url',
     ]);
 
@@ -193,8 +211,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_header_youtube', [
-        'label' => __('YouTube URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('YouTube URL', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'url',
     ]);
 
@@ -203,8 +221,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_header_tiktok', [
-        'label' => __('TikTok URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('TikTok URL', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'url',
     ]);
 
@@ -213,8 +231,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_header_cta_text', [
-        'label' => __('CTA Button Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('CTA Button Text', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'text',
     ]);
 
@@ -223,14 +241,14 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_header_cta_url', [
-        'label' => __('CTA Button URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_header',
+        'label' => __('CTA Button URL', 'badewatheme'),
+        'section' => 'badewatheme_header',
         'type' => 'url',
     ]);
 
     // Hero Section
-    $wp_customize->add_section('smkkesehatan_hero', [
-        'title' => __('Hero Section', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_hero', [
+        'title' => __('Hero Section', 'badewatheme'),
         'priority' => 30,
     ]);
 
@@ -242,8 +260,8 @@ function smkkesehatan_customize_register($wp_customize)
         $wp_customize,
         'smk_hero_image',
         [
-            'label' => __('Hero Image', 'smkkesehatan'),
-            'section' => 'smkkesehatan_hero',
+            'label' => __('Hero Image', 'badewatheme'),
+            'section' => 'badewatheme_hero',
         ]
     ));
 
@@ -252,8 +270,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_hero_title', [
-        'label' => __('Hero Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_hero',
+        'label' => __('Hero Title', 'badewatheme'),
+        'section' => 'badewatheme_hero',
         'type' => 'text',
     ]);
 
@@ -262,8 +280,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_hero_text', [
-        'label' => __('Hero Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_hero',
+        'label' => __('Hero Text', 'badewatheme'),
+        'section' => 'badewatheme_hero',
         'type' => 'textarea',
     ]);
 
@@ -272,8 +290,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_hero_button_text', [
-        'label' => __('Button Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_hero',
+        'label' => __('Button Text', 'badewatheme'),
+        'section' => 'badewatheme_hero',
         'type' => 'text',
     ]);
 
@@ -282,14 +300,14 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_hero_button_url', [
-        'label' => __('Button URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_hero',
+        'label' => __('Button URL', 'badewatheme'),
+        'section' => 'badewatheme_hero',
         'type' => 'url',
     ]);
 
     // Sambutan Section
-    $wp_customize->add_section('smkkesehatan_sambutan', [
-        'title' => __('Sambutan Kepala Sekolah', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_sambutan', [
+        'title' => __('Sambutan Kepala Sekolah', 'badewatheme'),
         'priority' => 31,
     ]);
 
@@ -298,8 +316,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sambutan_kicker', [
-        'label' => __('Kicker', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sambutan',
+        'label' => __('Kicker', 'badewatheme'),
+        'section' => 'badewatheme_sambutan',
         'type' => 'text',
     ]);
 
@@ -308,8 +326,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sambutan_title', [
-        'label' => __('Judul', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sambutan',
+        'label' => __('Judul', 'badewatheme'),
+        'section' => 'badewatheme_sambutan',
         'type' => 'text',
     ]);
 
@@ -318,8 +336,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'wp_kses_post',
     ]);
     $wp_customize->add_control('smk_sambutan_text', [
-        'label' => __('Teks Sambutan (HTML allowed)', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sambutan',
+        'label' => __('Teks Sambutan (HTML allowed)', 'badewatheme'),
+        'section' => 'badewatheme_sambutan',
         'type' => 'textarea',
     ]);
 
@@ -328,8 +346,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sambutan_name', [
-        'label' => __('Nama Kepala Sekolah', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sambutan',
+        'label' => __('Nama Kepala Sekolah', 'badewatheme'),
+        'section' => 'badewatheme_sambutan',
         'type' => 'text',
     ]);
 
@@ -338,8 +356,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sambutan_position', [
-        'label' => __('Jabatan', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sambutan',
+        'label' => __('Jabatan', 'badewatheme'),
+        'section' => 'badewatheme_sambutan',
         'type' => 'text',
     ]);
 
@@ -351,14 +369,14 @@ function smkkesehatan_customize_register($wp_customize)
         $wp_customize,
         'smk_sambutan_image',
         [
-            'label' => __('Foto Kepala Sekolah', 'smkkesehatan'),
-            'section' => 'smkkesehatan_sambutan',
+            'label' => __('Foto Kepala Sekolah', 'badewatheme'),
+            'section' => 'badewatheme_sambutan',
         ]
     ));
 
     // Kompetensi Section
-    $wp_customize->add_section('smkkesehatan_kompetensi', [
-        'title' => __('Kompetensi Keahlian', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_kompetensi', [
+        'title' => __('Kompetensi Keahlian', 'badewatheme'),
         'priority' => 32,
     ]);
 
@@ -367,8 +385,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_kompetensi_intro', [
-        'label' => __('Deskripsi Section', 'smkkesehatan'),
-        'section' => 'smkkesehatan_kompetensi',
+        'label' => __('Deskripsi Section', 'badewatheme'),
+        'section' => 'badewatheme_kompetensi',
         'type' => 'textarea',
     ]);
 
@@ -390,8 +408,8 @@ function smkkesehatan_customize_register($wp_customize)
             $wp_customize,
             "smk_kompetensi_image_{$i}",
             [
-                'label' => sprintf(__('Image Program %d', 'smkkesehatan'), $i),
-                'section' => 'smkkesehatan_kompetensi',
+                'label' => sprintf(__('Image Program %d', 'badewatheme'), $i),
+                'section' => 'badewatheme_kompetensi',
             ]
         ));
 
@@ -400,8 +418,8 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'sanitize_text_field',
         ]);
         $wp_customize->add_control("smk_kompetensi_title_{$i}", [
-            'label' => sprintf(__('Judul Program %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_kompetensi',
+            'label' => sprintf(__('Judul Program %d', 'badewatheme'), $i),
+            'section' => 'badewatheme_kompetensi',
             'type' => 'text',
         ]);
 
@@ -410,14 +428,14 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'sanitize_textarea_field',
         ]);
         $wp_customize->add_control("smk_kompetensi_text_{$i}", [
-            'label' => sprintf(__('Deskripsi Program %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_kompetensi',
+            'label' => sprintf(__('Deskripsi Program %d', 'badewatheme'), $i),
+            'section' => 'badewatheme_kompetensi',
             'type' => 'textarea',
         ]);
     }
 
-    $wp_customize->add_section('smkkesehatan_keunggulan', [
-        'title' => __('Keunggulan', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_keunggulan', [
+        'title' => __('Keunggulan', 'badewatheme'),
         'priority' => 33,
     ]);
 
@@ -426,8 +444,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_keunggulan_intro', [
-        'label' => __('Deskripsi Section', 'smkkesehatan'),
-        'section' => 'smkkesehatan_keunggulan',
+        'label' => __('Deskripsi Section', 'badewatheme'),
+        'section' => 'badewatheme_keunggulan',
         'type' => 'textarea',
     ]);
 
@@ -453,8 +471,8 @@ function smkkesehatan_customize_register($wp_customize)
             $wp_customize,
             "smk_keunggulan_image_{$i}",
             [
-                'label' => sprintf(__('Image Keunggulan %d', 'smkkesehatan'), $i),
-                'section' => 'smkkesehatan_keunggulan',
+                'label' => sprintf(__('Image Keunggulan %d', 'badewatheme'), $i),
+                'section' => 'badewatheme_keunggulan',
             ]
         ));
 
@@ -463,8 +481,8 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'sanitize_text_field',
         ]);
         $wp_customize->add_control("smk_keunggulan_title_{$i}", [
-            'label' => sprintf(__('Judul %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_keunggulan',
+            'label' => sprintf(__('Judul %d', 'badewatheme'), $i),
+            'section' => 'badewatheme_keunggulan',
             'type' => 'text',
         ]);
 
@@ -473,14 +491,14 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'sanitize_textarea_field',
         ]);
         $wp_customize->add_control("smk_keunggulan_text_{$i}", [
-            'label' => sprintf(__('Deskripsi %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_keunggulan',
+            'label' => sprintf(__('Deskripsi %d', 'badewatheme'), $i),
+            'section' => 'badewatheme_keunggulan',
             'type' => 'textarea',
         ]);
     }
 
-    $wp_customize->add_section('smkkesehatan_sidebar', [
-        'title' => __('Sidebar', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_sidebar', [
+        'title' => __('Sidebar', 'badewatheme'),
         'priority' => 31,
     ]);
 
@@ -489,8 +507,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sidebar_location_title', [
-        'label' => __('Judul Lokasi', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Judul Lokasi', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'text',
     ]);
 
@@ -499,8 +517,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_sidebar_map_url', [
-        'label' => __('URL Embed Google Maps', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('URL Embed Google Maps', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'url',
     ]);
 
@@ -509,8 +527,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sidebar_contact_title', [
-        'label' => __('Judul Kontak', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Judul Kontak', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'text',
     ]);
 
@@ -519,8 +537,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_sidebar_phone', [
-        'label' => __('Telepon / Fax', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Telepon / Fax', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'textarea',
     ]);
 
@@ -529,8 +547,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_sidebar_email', [
-        'label' => __('Email', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Email', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'textarea',
     ]);
 
@@ -539,8 +557,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sidebar_facebook', [
-        'label' => __('Facebook', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Facebook', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'text',
     ]);
 
@@ -549,8 +567,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sidebar_instagram', [
-        'label' => __('Instagram', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Instagram', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'text',
     ]);
 
@@ -559,8 +577,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_sidebar_youtube', [
-        'label' => __('YouTube URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('YouTube URL', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'url',
     ]);
 
@@ -569,8 +587,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_sidebar_tiktok', [
-        'label' => __('TikTok URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('TikTok URL', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'url',
     ]);
 
@@ -579,8 +597,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_sidebar_button_text', [
-        'label' => __('Teks Tombol', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('Teks Tombol', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'text',
     ]);
 
@@ -589,13 +607,13 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_sidebar_button_url', [
-        'label' => __('URL Tombol', 'smkkesehatan'),
-        'section' => 'smkkesehatan_sidebar',
+        'label' => __('URL Tombol', 'badewatheme'),
+        'section' => 'badewatheme_sidebar',
         'type' => 'url',
     ]);
 
-    $wp_customize->add_section('smkkesehatan_footer', [
-        'title' => __('Footer', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_footer', [
+        'title' => __('Footer', 'badewatheme'),
         'priority' => 40,
     ]);
 
@@ -604,18 +622,18 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_footer_about', [
-        'label' => __('Deskripsi Sekolah', 'smkkesehatan'),
-        'section' => 'smkkesehatan_footer',
+        'label' => __('Deskripsi Sekolah', 'badewatheme'),
+        'section' => 'badewatheme_footer',
         'type' => 'textarea',
     ]);
 
     $wp_customize->add_setting('smk_footer_contact', [
-        'default' => "Jl. Raya Pendidikan No. 10, Denpasar, Bali\nTelp: (0361) 123-456\nEmail: info@smkkesehatanbd.sch.id",
+        'default' => "Jl. Raya Pendidikan No. 10, Denpasar, Bali\nTelp: (0361) 123-456\nEmail: info@badewathemebd.sch.id",
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_footer_contact', [
-        'label' => __('Kontak (1 per baris)', 'smkkesehatan'),
-        'section' => 'smkkesehatan_footer',
+        'label' => __('Kontak (1 per baris)', 'badewatheme'),
+        'section' => 'badewatheme_footer',
         'type' => 'textarea',
     ]);
 
@@ -624,8 +642,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_footer_links_title', [
-        'label' => __('Judul Tautan', 'smkkesehatan'),
-        'section' => 'smkkesehatan_footer',
+        'label' => __('Judul Tautan', 'badewatheme'),
+        'section' => 'badewatheme_footer',
         'type' => 'text',
     ]);
 
@@ -634,15 +652,15 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_footer_links', [
-        'label' => __('Tautan (Label|URL per baris)', 'smkkesehatan'),
-        'section' => 'smkkesehatan_footer',
+        'label' => __('Tautan (Label|URL per baris)', 'badewatheme'),
+        'section' => 'badewatheme_footer',
         'type' => 'textarea',
     ]);
 
     // About Us Page Section
-    $wp_customize->add_section('smkkesehatan_about', [
-        'title' => __('About Us Page', 'smkkesehatan'),
-        'description' => __('Customize About Us page content', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_about', [
+        'title' => __('About Us Page', 'badewatheme'),
+        'description' => __('Customize About Us page content', 'badewatheme'),
         'priority' => 41,
     ]);
 
@@ -652,8 +670,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_about_hero_image', [
-        'label' => __('About Hero Image', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('About Hero Image', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'settings' => 'smk_about_hero_image',
     ]));
 
@@ -662,8 +680,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_about_hero_title', [
-        'label' => __('About Hero Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('About Hero Title', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'text',
     ]);
 
@@ -672,8 +690,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_about_hero_text', [
-        'label' => __('About Hero Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('About Hero Text', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'textarea',
     ]);
 
@@ -683,8 +701,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_about_title', [
-        'label' => __('About Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('About Title', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'text',
     ]);
 
@@ -693,8 +711,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'wp_kses_post',
     ]);
     $wp_customize->add_control('smk_about_text', [
-        'label' => __('About Text (HTML allowed)', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('About Text (HTML allowed)', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'textarea',
     ]);
 
@@ -703,8 +721,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_about_image', [
-        'label' => __('About Image', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('About Image', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'settings' => 'smk_about_image',
     ]));
 
@@ -714,8 +732,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_vision_title', [
-        'label' => __('Vision Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('Vision Title', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'text',
     ]);
 
@@ -724,8 +742,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'wp_kses_post',
     ]);
     $wp_customize->add_control('smk_vision_text', [
-        'label' => __('Vision Text (HTML allowed)', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('Vision Text (HTML allowed)', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'textarea',
     ]);
 
@@ -735,8 +753,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_mission_title', [
-        'label' => __('Mission Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('Mission Title', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'text',
     ]);
 
@@ -745,15 +763,15 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_mission_items', [
-        'label' => __('Mission Items (one per line)', 'smkkesehatan'),
-        'section' => 'smkkesehatan_about',
+        'label' => __('Mission Items (one per line)', 'badewatheme'),
+        'section' => 'badewatheme_about',
         'type' => 'textarea',
     ]);
 
     // Fasilitas Page Section
-    $wp_customize->add_section('smkkesehatan_fasilitas', [
-        'title' => __('Fasilitas Page', 'smkkesehatan'),
-        'description' => __('Customize Fasilitas page content', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_fasilitas', [
+        'title' => __('Fasilitas Page', 'badewatheme'),
+        'description' => __('Customize Fasilitas page content', 'badewatheme'),
         'priority' => 42,
     ]);
 
@@ -763,8 +781,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_fasilitas_hero_image', [
-        'label' => __('Fasilitas Hero Image', 'smkkesehatan'),
-        'section' => 'smkkesehatan_fasilitas',
+        'label' => __('Fasilitas Hero Image', 'badewatheme'),
+        'section' => 'badewatheme_fasilitas',
         'settings' => 'smk_fasilitas_hero_image',
     ]));
 
@@ -773,8 +791,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_fasilitas_hero_title', [
-        'label' => __('Fasilitas Hero Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_fasilitas',
+        'label' => __('Fasilitas Hero Title', 'badewatheme'),
+        'section' => 'badewatheme_fasilitas',
         'type' => 'text',
     ]);
 
@@ -783,8 +801,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_fasilitas_hero_text', [
-        'label' => __('Fasilitas Hero Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_fasilitas',
+        'label' => __('Fasilitas Hero Text', 'badewatheme'),
+        'section' => 'badewatheme_fasilitas',
         'type' => 'textarea',
     ]);
 
@@ -811,8 +829,8 @@ function smkkesehatan_customize_register($wp_customize)
             $wp_customize,
             "smk_fasilitas_image_{$i}",
             [
-                'label' => sprintf(__('Fasilitas %d - Image', 'smkkesehatan'), $i),
-                'section' => 'smkkesehatan_fasilitas',
+                'label' => sprintf(__('Fasilitas %d - Image', 'badewatheme'), $i),
+                'section' => 'badewatheme_fasilitas',
             ]
         ));
 
@@ -821,8 +839,8 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'sanitize_text_field',
         ]);
         $wp_customize->add_control("smk_fasilitas_title_{$i}", [
-            'label' => sprintf(__('Fasilitas %d - Title', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_fasilitas',
+            'label' => sprintf(__('Fasilitas %d - Title', 'badewatheme'), $i),
+            'section' => 'badewatheme_fasilitas',
             'type' => 'text',
         ]);
 
@@ -831,16 +849,16 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'wp_kses_post',
         ]);
         $wp_customize->add_control("smk_fasilitas_text_{$i}", [
-            'label' => sprintf(__('Fasilitas %d - Description (HTML allowed)', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_fasilitas',
+            'label' => sprintf(__('Fasilitas %d - Description (HTML allowed)', 'badewatheme'), $i),
+            'section' => 'badewatheme_fasilitas',
             'type' => 'textarea',
         ]);
     }
 
     // Contact Us Page Section
-    $wp_customize->add_section('smkkesehatan_contact', [
-        'title' => __('Contact Us Page', 'smkkesehatan'),
-        'description' => __('Customize Contact Us page content', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_contact', [
+        'title' => __('Contact Us Page', 'badewatheme'),
+        'description' => __('Customize Contact Us page content', 'badewatheme'),
         'priority' => 43,
     ]);
 
@@ -850,8 +868,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_contact_hero_image', [
-        'label' => __('Contact Hero Image', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Contact Hero Image', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'settings' => 'smk_contact_hero_image',
     ]));
 
@@ -860,8 +878,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_contact_hero_title', [
-        'label' => __('Contact Hero Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Contact Hero Title', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'text',
     ]);
 
@@ -870,8 +888,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_contact_hero_text', [
-        'label' => __('Contact Hero Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Contact Hero Text', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'textarea',
     ]);
 
@@ -881,8 +899,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_contact_address', [
-        'label' => __('Address', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Address', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'textarea',
     ]);
 
@@ -891,19 +909,19 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_contact_whatsapp', [
-        'label' => __('WhatsApp Number', 'smkkesehatan'),
-        'description' => __('Format: +62XXXXXXXXXX', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('WhatsApp Number', 'badewatheme'),
+        'description' => __('Format: +62XXXXXXXXXX', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'text',
     ]);
 
     $wp_customize->add_setting('smk_contact_email', [
-        'default' => 'info@smkkesehatan.sch.id',
+        'default' => 'info@badewatheme.sch.id',
         'sanitize_callback' => 'sanitize_email',
     ]);
     $wp_customize->add_control('smk_contact_email', [
-        'label' => __('Email Address', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Email Address', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'email',
     ]);
 
@@ -912,9 +930,9 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_contact_map_url', [
-        'label' => __('Google Maps Embed URL', 'smkkesehatan'),
-        'description' => __('Paste the embed URL from Google Maps', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Google Maps Embed URL', 'badewatheme'),
+        'description' => __('Paste the embed URL from Google Maps', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'url',
     ]);
 
@@ -924,8 +942,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_contact_instagram', [
-        'label' => __('Instagram URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Instagram URL', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'url',
     ]);
 
@@ -934,8 +952,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_contact_facebook', [
-        'label' => __('Facebook URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('Facebook URL', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'url',
     ]);
 
@@ -944,8 +962,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_contact_youtube', [
-        'label' => __('YouTube URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('YouTube URL', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'url',
     ]);
 
@@ -954,15 +972,15 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control('smk_contact_tiktok', [
-        'label' => __('TikTok URL', 'smkkesehatan'),
-        'section' => 'smkkesehatan_contact',
+        'label' => __('TikTok URL', 'badewatheme'),
+        'section' => 'badewatheme_contact',
         'type' => 'url',
     ]);
 
     // FAQ Page Section
-    $wp_customize->add_section('smkkesehatan_faq', [
-        'title' => __('FAQ Page', 'smkkesehatan'),
-        'description' => __('Customize FAQ page hero and questions', 'smkkesehatan'),
+    $wp_customize->add_section('badewatheme_faq', [
+        'title' => __('FAQ Page', 'badewatheme'),
+        'description' => __('Customize FAQ page hero and questions', 'badewatheme'),
         'priority' => 44,
     ]);
 
@@ -972,8 +990,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_faq_hero_image', [
-        'label' => __('FAQ Hero Image', 'smkkesehatan'),
-        'section' => 'smkkesehatan_faq',
+        'label' => __('FAQ Hero Image', 'badewatheme'),
+        'section' => 'badewatheme_faq',
         'settings' => 'smk_faq_hero_image',
     ]));
 
@@ -982,8 +1000,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
     $wp_customize->add_control('smk_faq_hero_title', [
-        'label' => __('FAQ Hero Title', 'smkkesehatan'),
-        'section' => 'smkkesehatan_faq',
+        'label' => __('FAQ Hero Title', 'badewatheme'),
+        'section' => 'badewatheme_faq',
         'type' => 'text',
     ]);
 
@@ -992,8 +1010,8 @@ function smkkesehatan_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_faq_hero_text', [
-        'label' => __('FAQ Hero Text', 'smkkesehatan'),
-        'section' => 'smkkesehatan_faq',
+        'label' => __('FAQ Hero Text', 'badewatheme'),
+        'section' => 'badewatheme_faq',
         'type' => 'textarea',
     ]);
 
@@ -1004,8 +1022,8 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'sanitize_text_field',
         ]);
         $wp_customize->add_control("smk_faq_question_{$i}", [
-            'label' => sprintf(__('FAQ %d - Question', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_faq',
+            'label' => sprintf(__('FAQ %d - Question', 'badewatheme'), $i),
+            'section' => 'badewatheme_faq',
             'type' => 'text',
         ]);
 
@@ -1014,17 +1032,17 @@ function smkkesehatan_customize_register($wp_customize)
             'sanitize_callback' => 'wp_kses_post',
         ]);
         $wp_customize->add_control("smk_faq_answer_{$i}", [
-            'label' => sprintf(__('FAQ %d - Answer', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_faq',
+            'label' => sprintf(__('FAQ %d - Answer', 'badewatheme'), $i),
+            'section' => 'badewatheme_faq',
             'type' => 'textarea',
         ]);
     }
 }
 
-add_action('customize_register', 'smkkesehatan_customize_register');
+add_action('customize_register', 'badewatheme_customize_register');
 
 // Output custom colors as CSS variables
-function smkkesehatan_custom_colors()
+function badewatheme_custom_colors()
 {
     $primary = get_theme_mod('smk_color_primary', '#007e41');
     $primary_dark = get_theme_mod('smk_color_primary_dark', '#28a828');
@@ -1046,9 +1064,9 @@ function smkkesehatan_custom_colors()
     </style>
     <?php
 }
-add_action('wp_head', 'smkkesehatan_custom_colors');
+add_action('wp_head', 'badewatheme_custom_colors');
 
-function smkkesehatan_nav_menu_css_class($classes, $item, $args, $depth)
+function badewatheme_nav_menu_css_class($classes, $item, $args, $depth)
 {
     if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
         return $classes;
@@ -1065,9 +1083,9 @@ function smkkesehatan_nav_menu_css_class($classes, $item, $args, $depth)
     return $classes;
 }
 
-add_filter('nav_menu_css_class', 'smkkesehatan_nav_menu_css_class', 10, 4);
+add_filter('nav_menu_css_class', 'badewatheme_nav_menu_css_class', 10, 4);
 
-function smkkesehatan_nav_menu_link_attributes($atts, $item, $args, $depth)
+function badewatheme_nav_menu_link_attributes($atts, $item, $args, $depth)
 {
     if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
         return $atts;
@@ -1090,9 +1108,9 @@ function smkkesehatan_nav_menu_link_attributes($atts, $item, $args, $depth)
     return $atts;
 }
 
-add_filter('nav_menu_link_attributes', 'smkkesehatan_nav_menu_link_attributes', 10, 4);
+add_filter('nav_menu_link_attributes', 'badewatheme_nav_menu_link_attributes', 10, 4);
 
-function smkkesehatan_nav_menu_submenu_css_class($classes, $args, $depth)
+function badewatheme_nav_menu_submenu_css_class($classes, $args, $depth)
 {
     if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
         return $classes;
@@ -1102,4 +1120,4 @@ function smkkesehatan_nav_menu_submenu_css_class($classes, $args, $depth)
     return $classes;
 }
 
-add_filter('nav_menu_submenu_css_class', 'smkkesehatan_nav_menu_submenu_css_class', 10, 3);
+add_filter('nav_menu_submenu_css_class', 'badewatheme_nav_menu_submenu_css_class', 10, 3);

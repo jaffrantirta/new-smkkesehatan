@@ -53,8 +53,8 @@ $news_query = new WP_Query([
                         echo paginate_links([
                             'total' => $news_query->max_num_pages,
                             'current' => $paged,
-                            'prev_text' => __('Sebelumnya', 'smkkesehatan'),
-                            'next_text' => __('Berikutnya', 'smkkesehatan'),
+                            'prev_text' => __('Sebelumnya', 'badewatheme'),
+                            'next_text' => __('Berikutnya', 'badewatheme'),
                             'type' => 'list',
                         ]);
                         ?>

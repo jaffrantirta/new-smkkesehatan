@@ -14,7 +14,7 @@ $contact_hero_text = get_theme_mod('smk_contact_hero_text', 'Kami siap membantu 
 // Get Contact Information
 $contact_address = get_theme_mod('smk_contact_address', 'Jl. Ahmad Yani Utara No. 331 Peguyangan, Denpasar Utara, Denpasar - Bali 80115');
 $contact_whatsapp = get_theme_mod('smk_contact_whatsapp', '+6282227535136');
-$contact_email = get_theme_mod('smk_contact_email', 'info@smkkesehatan.sch.id');
+$contact_email = get_theme_mod('smk_contact_email', 'info@badewatheme.sch.id');
 $contact_map_url = get_theme_mod('smk_contact_map_url', '');
 
 // Get Social Media

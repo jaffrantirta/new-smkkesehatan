@@ -1,9 +1,14 @@
 /*
-Theme Name: SMK Kesehatan Theme
-Theme URI: http://localhost/smkkesehatan
-Author: Jaffran
-Description: Custom theme for SMK Kesehatan
-Version: 1.1.0
+Theme Name: Badewa Jaffran Theme
+Theme URI: https://github.com/jaffran
+Author: Jaffran Tirta Artika
+Author URI: https://github.com/jaffran
+Description: A modern, professional WordPress theme designed for educational institutions and schools. Developed by Jaffran Tirta Artika, a software developer from ITM Bali. Features include responsive design, customizable colors, smooth scroll animations, and comprehensive customization options.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: badewatheme
+Tags: education, school, health, custom-colors, custom-menu, featured-images, responsive-design, translation-ready
 */
 
 /* CSS Variables are now defined dynamically in functions.php via WordPress Customizer */
