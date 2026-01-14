@@ -961,21 +961,71 @@ function badewatheme_customize_register($wp_customize)
         'type' => 'textarea',
     ]);
 
-    // Fasilitas Items (4 facilities)
+    // Number of Fasilitas items
+    $wp_customize->add_setting('smk_fasilitas_count', [
+        'default' => 4,
+        'sanitize_callback' => 'absint',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('smk_fasilitas_count', [
+        'label' => __('Number of Fasilitas Items', 'badewatheme'),
+        'description' => __('How many fasilitas items to display (1-20)', 'badewatheme'),
+        'section' => 'badewatheme_fasilitas',
+        'type' => 'number',
+        'input_attrs' => [
+            'min' => 1,
+            'max' => 20,
+            'step' => 1,
+        ],
+    ]);
+
+    // Fasilitas Items (up to 20 facilities)
     $default_fasilitas_titles = [
         1 => 'Ruang Kelas',
         2 => 'Laboratorium Praktik',
         3 => 'Perpustakaan',
         4 => 'Ruang Simulasi Medis',
+        5 => 'Fasilitas 5',
+        6 => 'Fasilitas 6',
+        7 => 'Fasilitas 7',
+        8 => 'Fasilitas 8',
+        9 => 'Fasilitas 9',
+        10 => 'Fasilitas 10',
+        11 => 'Fasilitas 11',
+        12 => 'Fasilitas 12',
+        13 => 'Fasilitas 13',
+        14 => 'Fasilitas 14',
+        15 => 'Fasilitas 15',
+        16 => 'Fasilitas 16',
+        17 => 'Fasilitas 17',
+        18 => 'Fasilitas 18',
+        19 => 'Fasilitas 19',
+        20 => 'Fasilitas 20',
     ];
     $default_fasilitas_texts = [
         1 => 'Ruang kelas yang luas dan nyaman sehingga proses pembelajaran dapat berlangsung dengan baik. Dilengkapi dengan fasilitas proyektor dan komputer.',
         2 => 'Laboratorium dengan peralatan modern untuk praktik langsung, memastikan siswa mendapatkan pengalaman hands-on yang berkualitas.',
         3 => 'Perpustakaan dengan koleksi buku dan jurnal kesehatan terlengkap, mendukung pembelajaran dan penelitian siswa.',
         4 => 'Ruang simulasi medis dengan manekin dan peralatan medis standar industri untuk melatih keterampilan klinis siswa.',
+        5 => 'Deskripsi fasilitas 5.',
+        6 => 'Deskripsi fasilitas 6.',
+        7 => 'Deskripsi fasilitas 7.',
+        8 => 'Deskripsi fasilitas 8.',
+        9 => 'Deskripsi fasilitas 9.',
+        10 => 'Deskripsi fasilitas 10.',
+        11 => 'Deskripsi fasilitas 11.',
+        12 => 'Deskripsi fasilitas 12.',
+        13 => 'Deskripsi fasilitas 13.',
+        14 => 'Deskripsi fasilitas 14.',
+        15 => 'Deskripsi fasilitas 15.',
+        16 => 'Deskripsi fasilitas 16.',
+        17 => 'Deskripsi fasilitas 17.',
+        18 => 'Deskripsi fasilitas 18.',
+        19 => 'Deskripsi fasilitas 19.',
+        20 => 'Deskripsi fasilitas 20.',
     ];
 
-    for ($i = 1; $i <= 4; $i++) {
+    for ($i = 1; $i <= 20; $i++) {
         $wp_customize->add_setting("smk_fasilitas_image_{$i}", [
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',
