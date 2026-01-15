@@ -1060,6 +1060,88 @@ function badewatheme_customize_register($wp_customize)
         ]);
     }
 
+    // Galeri Page Section
+    $wp_customize->add_section('badewatheme_galeri', [
+        'title' => __('Galeri Page', 'badewatheme'),
+        'description' => __('Customize Galeri page content', 'badewatheme'),
+        'priority' => 42,
+    ]);
+
+    // Galeri Hero Settings
+    $wp_customize->add_setting('smk_galeri_hero_image', [
+        'default' => get_template_directory_uri() . '/assets/images/hero-default.jpg',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'smk_galeri_hero_image', [
+        'label' => __('Galeri Hero Image', 'badewatheme'),
+        'section' => 'badewatheme_galeri',
+        'settings' => 'smk_galeri_hero_image',
+    ]));
+
+    $wp_customize->add_setting('smk_galeri_hero_title', [
+        'default' => 'Galeri',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_galeri_hero_title', [
+        'label' => __('Galeri Hero Title', 'badewatheme'),
+        'section' => 'badewatheme_galeri',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_galeri_hero_text', [
+        'default' => 'Dokumentasi kegiatan dan momen berharga di SMK Kesehatan Bali Dewata',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
+    $wp_customize->add_control('smk_galeri_hero_text', [
+        'label' => __('Galeri Hero Text', 'badewatheme'),
+        'section' => 'badewatheme_galeri',
+        'type' => 'textarea',
+    ]);
+
+    // Number of Gallery items
+    $wp_customize->add_setting('smk_galeri_count', [
+        'default' => 12,
+        'sanitize_callback' => 'absint',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control('smk_galeri_count', [
+        'label' => __('Number of Gallery Images', 'badewatheme'),
+        'description' => __('How many gallery images to display (1-30)', 'badewatheme'),
+        'section' => 'badewatheme_galeri',
+        'type' => 'number',
+        'input_attrs' => [
+            'min' => 1,
+            'max' => 30,
+            'step' => 1,
+        ],
+    ]);
+
+    // Gallery Images (up to 30 images)
+    for ($i = 1; $i <= 30; $i++) {
+        $wp_customize->add_setting("smk_galeri_image_{$i}", [
+            'default' => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control(
+            $wp_customize,
+            "smk_galeri_image_{$i}",
+            [
+                'label' => sprintf(__('Gallery Image %d', 'badewatheme'), $i),
+                'section' => 'badewatheme_galeri',
+            ]
+        ));
+
+        $wp_customize->add_setting("smk_galeri_alt_{$i}", [
+            'default' => "Galeri {$i}",
+            'sanitize_callback' => 'sanitize_text_field',
+        ]);
+        $wp_customize->add_control("smk_galeri_alt_{$i}", [
+            'label' => sprintf(__('Gallery Image %d - Alt Text', 'badewatheme'), $i),
+            'section' => 'badewatheme_galeri',
+            'type' => 'text',
+        ]);
+    }
+
     // Contact Us Page Section
     $wp_customize->add_section('badewatheme_contact', [
         'title' => __('Contact Us Page', 'badewatheme'),
