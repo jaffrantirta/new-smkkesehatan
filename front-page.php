@@ -168,8 +168,8 @@ get_header();
     <section id="keunggulan" class="section-pad section-accent">
         <div class="container">
             <div class="section-header">
-                <p class="section-kicker">Mengapa Kami</p>
-                <h2>Keunggulan SMK Kesehatan Bali Dewata</h2>
+                <p class="section-kicker"><?php echo esc_html(get_theme_mod('smk_keunggulan_kicker', 'Mengapa Kami')); ?></p>
+                <h2><?php echo esc_html(get_theme_mod('smk_keunggulan_title', 'Keunggulan SMK Kesehatan Bali Dewata')); ?></h2>
                 <p><?php echo esc_html(get_theme_mod('smk_keunggulan_intro', 'Lingkungan belajar yang formal, profesional, dan adaptif dengan kebutuhan dunia kesehatan.')); ?></p>
             </div>
             <?php

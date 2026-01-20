@@ -526,12 +526,36 @@ function badewatheme_customize_register($wp_customize)
         'priority' => 33,
     ]);
 
+    // Section Kicker
+    $wp_customize->add_setting('smk_keunggulan_kicker', [
+        'default' => 'Mengapa Kami',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_keunggulan_kicker', [
+        'label' => __('Section Kicker', 'badewatheme'),
+        'description' => __('Small text above the title', 'badewatheme'),
+        'section' => 'badewatheme_keunggulan',
+        'type' => 'text',
+    ]);
+
+    // Section Title
+    $wp_customize->add_setting('smk_keunggulan_title', [
+        'default' => 'Keunggulan SMK Kesehatan Bali Dewata',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_keunggulan_title', [
+        'label' => __('Section Title', 'badewatheme'),
+        'section' => 'badewatheme_keunggulan',
+        'type' => 'text',
+    ]);
+
+    // Section Description
     $wp_customize->add_setting('smk_keunggulan_intro', [
         'default' => 'Lingkungan belajar yang formal, profesional, dan adaptif dengan kebutuhan dunia kesehatan.',
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_keunggulan_intro', [
-        'label' => __('Deskripsi Section', 'badewatheme'),
+        'label' => __('Section Description', 'badewatheme'),
         'section' => 'badewatheme_keunggulan',
         'type' => 'textarea',
     ]);
