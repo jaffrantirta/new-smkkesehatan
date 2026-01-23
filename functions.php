@@ -1470,6 +1470,22 @@ function badewatheme_register_program_cpt() {
 }
 add_action('init', 'badewatheme_register_program_cpt');
 
+// Flush rewrite rules on theme activation
+function badewatheme_rewrite_flush() {
+    badewatheme_register_program_cpt();
+    flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'badewatheme_rewrite_flush');
+
+// Also flush when CPT is first registered (one-time)
+function badewatheme_flush_rewrite_once() {
+    if (get_option('badewatheme_flush_rewrite') !== 'done') {
+        flush_rewrite_rules();
+        update_option('badewatheme_flush_rewrite', 'done');
+    }
+}
+add_action('init', 'badewatheme_flush_rewrite_once', 20);
+
 // Add Meta Boxes for Program
 function badewatheme_program_meta_boxes() {
     add_meta_box(
